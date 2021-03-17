@@ -51,9 +51,9 @@ export class SliderBox extends Component {
   componentDidMount() {
     let a = [...Array(this.props.images.length).keys()].map((i) => false);
   }
-  onCurrentImagePressedHandler() {
+  onCurrentImagePressedHandler(item) {
     if (this.props.onCurrentImagePressed) {
-      this.props.onCurrentImagePressed(this.state.currentImage);
+      this.props.onCurrentImagePressed(item);
     }
   }
 
@@ -88,7 +88,7 @@ export class SliderBox extends Component {
           key={index}
           underlayColor="transparent"
           disabled={disableOnPress}
-          onPress={this.onCurrentImagePressedHandler}
+          onPress={()=> this.onCurrentImagePressedHandler(item)}
           activeOpacity={1}>
           <ImageComponent
             style={[
